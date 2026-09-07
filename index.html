@@ -48,6 +48,17 @@
     th, td {
       border: 1px solid #1f2937;
     }
+    .tab-view {
+      display: none;
+    }
+    .tab-view.active {
+      display: block;
+    }
+    .nav-btn.active {
+      background-color: #3b82f6 !important;
+      color: white !important;
+      box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
@@ -114,7 +125,7 @@
         <button onclick="switchTab('roster')" id="nav-roster" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الروستر" data-en="Roster">الروستر</button>
         <button onclick="switchTab('departments')" id="nav-departments" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأقسام" data-en="Departments">الأقسام</button>
         <button onclick="switchTab('schedule')" id="nav-schedule" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الجدول" data-en="Schedule">الجدول</button>
-        <button onclick="switchTab('manual')" id="nav-manual" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-md transition" data-ar="الرئيسية" data-en="Main">الرئيسية</button>
+        <button onclick="switchTab('manual')" id="nav-manual" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-md transition active" data-ar="الرئيسية" data-en="Main">الرئيسية</button>
         
         <!-- Language Toggle Button -->
         <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full text-xs font-bold text-amber-400 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 transition flex items-center gap-1 ml-2">
@@ -142,7 +153,7 @@
   <main class="mx-auto max-w-7xl flex-1 px-4 py-6 sm:px-6 w-full">
     
     <!-- TAB 1: MAIN / FIELD MANUAL -->
-    <div id="view-manual" class="tab-view space-y-6">
+    <div id="view-manual" class="tab-view active space-y-6">
       
       <!-- General Terms -->
       <section id="sec-terms" class="rounded-xl border border-border bg-card p-5 space-y-4">
@@ -474,24 +485,127 @@
         </div>
       </section>
     </div>
+
+    <!-- Placeholder divs for other tabs -->
+    <div id="view-citizen" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="محتوى بوابة المواطن قريباً" data-en="Citizen Portal content coming soon">محتوى بوابة المواطن قريباً</p>
+      </div>
+    </div>
+
+    <div id="view-apply" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="نموذج التقديم قريباً" data-en="Application form coming soon">نموذج التقديم قريباً</p>
+      </div>
+    </div>
+
+    <div id="view-news" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="الأخبار قريباً" data-en="News coming soon">الأخبار قريباً</p>
+      </div>
+    </div>
+
+    <div id="view-courts" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="محتوى المحاكم قريباً" data-en="Courts content coming soon">محتوى المحاكم قريباً</p>
+      </div>
+    </div>
+
+    <div id="view-wanted" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="قائمة المطلوبين قريباً" data-en="Wanted list coming soon">قائمة المطلوبين قريباً</p>
+      </div>
+    </div>
+
+    <div id="view-roster" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="الروستر قريباً" data-en="Roster coming soon">الروستر قريباً</p>
+      </div>
+    </div>
+
+    <div id="view-departments" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="معلومات الأقسام قريباً" data-en="Departments info coming soon">معلومات الأقسام قريباً</p>
+      </div>
+    </div>
+
+    <div id="view-schedule" class="tab-view space-y-6">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
+        <p class="text-textMuted" data-ar="الجدول الزمني قريباً" data-en="Schedule coming soon">الجدول الزمني قريباً</p>
+      </div>
+    </div>
   </main>
 
   <script>
-    function switchTab(tab) {
-      console.log('Switching to tab:', tab);
-      // Tab switching logic will be added
+    let currentLanguage = 'ar';
+
+    function switchTab(tabName) {
+      // Hide all tabs
+      const tabs = document.querySelectorAll('.tab-view');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Show selected tab
+      const selectedTab = document.getElementById(`view-${tabName}`);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+
+      // Update nav buttons
+      const navButtons = document.querySelectorAll('.nav-btn');
+      navButtons.forEach(btn => btn.classList.remove('active'));
+
+      const activeButton = document.getElementById(`nav-${tabName}`);
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
+
+      // Hide sub-nav if not manual tab
+      const subNav = document.getElementById('manualSubNav');
+      if (tabName === 'manual') {
+        subNav.style.display = 'flex';
+      } else {
+        subNav.style.display = 'none';
+      }
     }
 
     function scrollToSection(sectionId) {
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
     function toggleLanguage() {
-      // Language toggle logic will be added
+      currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
+      
+      const langLabel = document.getElementById('langLabel');
+      langLabel.textContent = currentLanguage === 'ar' ? 'AR' : 'EN';
+
+      // Update all elements with data-ar and data-en attributes
+      const elementsWithLang = document.querySelectorAll('[data-ar][data-en]');
+      elementsWithLang.forEach(element => {
+        if (currentLanguage === 'ar') {
+          element.textContent = element.getAttribute('data-ar');
+        } else {
+          element.textContent = element.getAttribute('data-en');
+        }
+      });
+
+      // Toggle HTML direction
+      const htmlRoot = document.getElementById('htmlRoot');
+      if (currentLanguage === 'ar') {
+        htmlRoot.setAttribute('dir', 'rtl');
+        htmlRoot.setAttribute('lang', 'ar');
+      } else {
+        htmlRoot.setAttribute('dir', 'ltr');
+        htmlRoot.setAttribute('lang', 'en');
+      }
     }
+
+    // Initialize - show manual tab by default
+    window.addEventListener('DOMContentLoaded', function() {
+      switchTab('manual');
+    });
   </script>
 </body>
 </html>
