@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOS SANTOS POLICE DEPARTMENT — FIELD MANUAL</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: "#0a0f1d",
+            card: "#111827",
+            "card-hover": "#1f2937",
+            primary: "#3b82f6",
+            secondary: "#1e293b",
+            border: "#1f2937",
+            textMuted: "#9ca3af",
+            gold: "#f59e0b",
+            danger: "#ef4444",
+          },
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+          }
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #0a0f1d;
+      color: #f3f4f6;
+      font-family: 'Cairo', sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+  <!-- Header Design -->
+  <header class="sticky top-0 z-30 border-b border-border/80 bg-background/95 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+      
+      <!-- Right Side: Shield Logo & Title -->
+      <div class="flex items-center gap-3">
+        <div class="relative flex h-12 w-12 items-center justify-center shrink-0 overflow-hidden rounded-full border border-slate-700 bg-slate-900 shadow text-blue-500">
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          </svg>
+        </div>
+
+        <div class="flex flex-col">
+          <h1 class="text-base sm:text-xl font-black tracking-wider text-white uppercase leading-none font-sans" data-ar="LOS SANTOS POLICE" data-en="LOS SANTOS POLICE">
+            LOS SANTOS POLICE
+          </h1>
+          <p class="text-[10px] sm:text-xs font-bold text-amber-500 tracking-widest uppercase mt-1" data-ar="TO PROTECT AND SERVE" data-en="TO PROTECT AND SERVE">
+            TO PROTECT AND SERVE
+          </p>
+        </div>
+      </div>
+
+      <!-- Controls Left -->
+      <div class="flex items-center gap-3">
+        <a href="tel:911" class="inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-red-700 shadow-md transition">
+          📞 <span data-ar="911" data-en="911">911</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Red Sub-Header Line with Shield Logo next to LOS SANTOS POLICE DEPARTMENT -->
+    <div class="bg-slate-950/80 border-t border-slate-800/80 py-1.5 px-4">
+      <div class="mx-auto flex max-w-7xl items-center justify-between text-xs sm:text-sm font-extrabold text-red-500 tracking-widest uppercase">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-full overflow-hidden border border-slate-700 flex items-center justify-center bg-slate-900 shadow shrink-0 text-red-500">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+          </div>
+          <span data-ar="LOS SANTOS POLICE DEPARTMENT" data-en="LOS SANTOS POLICE DEPARTMENT">LOS SANTOS POLICE DEPARTMENT</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span>WP</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION PILL BAR -->
+  <section class="border-b border-border bg-slate-900/60 sticky top-[73px] z-20 backdrop-blur-md">
+    <div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 overflow-x-auto">
+      <div class="inline-flex items-center gap-1 bg-[#0b101d] border border-slate-800 rounded-full p-1.5 shadow-inner min-w-max">
+        
+        <button onclick="switchTab('citizen')" id="nav-citizen" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="بوابة المواطن" data-en="Citizen Portal">بوابة المواطن</button>
+        <button onclick="switchTab('apply')" id="nav-apply" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="التقديم" data-en="Apply">التقديم</button>
+        <button onclick="switchTab('news')" id="nav-news" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأخبار" data-en="News">الأخبار</button>
+        <button onclick="switchTab('courts')" id="nav-courts" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المحاكم" data-en="Courts">المحاكم</button>
+        <button onclick="switchTab('wanted')" id="nav-wanted" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المطلوبين" data-en="Wanted">المطلوبين</button>
+        <button onclick="switchTab('roster')" id="nav-roster" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الروستر" data-en="Roster">الروستر</button>
+        <button onclick="switchTab('departments')" id="nav-departments" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأقسام" data-en="Departments">الأقسام</button>
+        <button onclick="switchTab('schedule')" id="nav-schedule" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الجدول" data-en="Schedule">الجدول</button>
+        <button onclick="switchTab('manual')" id="nav-manual" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-md transition" data-ar="الرئيسية" data-en="Main">الرئيسية</button>
+        
+        <!-- Language Toggle Button -->
+        <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full text-xs font-bold text-amber-400 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 transition flex items-center gap-1 ml-2">
+          🌐 <span id="langLabel">AR</span>
+        </button>
+      </div>
+
+      <!-- Sub Navigation Buttons for Field Manual -->
+      <div id="manualSubNav" class="flex flex-wrap items-center gap-2 pt-3 mt-3 border-t border-slate-800/60 w-full">
+        <button onclick="scrollToSection('sec-terms')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="مصطلحات عامة" data-en="General Terms">مصطلحات عامة</button>
+        <button onclick="scrollToSection('sec-radio')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="موجات الراديو" data-en="Radio Channels">موجات الراديو</button>
+        <button onclick="scrollToSection('sec-status-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أكواد الحالة" data-en="Status Codes">أكواد الحالة</button>
+        <button onclick="scrollToSection('sec-ten-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أكواد 10 و 20" data-en="10 & 20 Codes">أكواد 10 و 20</button>
+        <button onclick="scrollToSection('sec-shooting')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="قوانين إطلاق النار" data-en="Shooting Rules">قوانين إطلاق النار</button>
+        <button onclick="scrollToSection('sec-clashes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="التعامل مع الاشتباكات" data-en="Clashes Handling">التعامل مع الاشتباكات</button>
+        <button onclick="scrollToSection('sec-arrest')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="إلقاء القبض والحقوق" data-en="Arrest & Rights">إلقاء القبض والحقوق</button>
+        <button onclick="scrollToSection('sec-traffic')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="الاستيقاف المروري" data-en="Traffic Stop">الاستيقاف المروري</button>
+        <button onclick="scrollToSection('sec-escape')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="شروط الخروج الآمن" data-en="Safe Escape">شروط الخروج الآمن</button>
+        <button onclick="scrollToSection('sec-units')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أعداد الوحدات" data-en="Unit Numbers">أعداد الوحدات</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="mx-auto max-w-7xl flex-1 px-4 py-6 sm:px-6 w-full">
+    
+    <!-- TAB 1: MAIN / FIELD MANUAL -->
+    <div id="view-manual" class="tab-view space-y-6">
+      
+      <!-- General Terms -->
+      <section id="sec-terms" class="rounded-xl border border-border bg-card p-5 space-y-4">
+        <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
+          📌 <span data-ar="10- مصطلحات عامة مهمة" data-en="10- General Important Terms">10- مصطلحات عامة مهمة</span>
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm leading-relaxed">
+          <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
+            <strong class="text-primary block mb-1" data-ar="1. ديسباتش (Dispatch):" data-en="1. Dispatch:">1. ديسباتش (Dispatch):</strong>
+            <p class="text-textMuted" data-ar="مركز تنظيمي وتوجيهي لكافة الوحدات المتواجدة في الميدان لمتابعة الحالات وتوجيه الدعم." data-en="Organizational and directive center for all units in the field to monitor cases and direct support.">مركز تنظيمي وتوجيهي لكافة الوحدات المتواجدة في الميدان لمتابعة الحالات وتوجيه الدعم.</p>
+          </div>
+          <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
+            <strong class="text-primary block mb-1" data-ar="2. نائب ديسباتش:" data-en="2. Deputy Dispatch:">2. نائب ديسباتش:</strong>
+            <p class="text-textMuted" data-ar="وسيلة مساعدة لمركز العمليات ويتولى المسؤولية عند غياب الديسباتش الأساسي." data-en="Assists the operations center and takes responsibility when the primary dispatcher is absent.">وسيلة مساعدة لمركز العمليات ويتولى المسؤولية عند غياب الديسباتش الأساسي.</p>
+          </div>
+          <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
+            <strong class="text-primary block mb-1" data-ar="3. مسؤول الحالة:" data-en="3. Incident Commander:">3. مسؤول الحالة:</strong>
+            <p class="text-textMuted" data-ar="يقوم بتنظيم وقيادة أي حالة جنائية وتوزيع الوحدات في الموقع بتكليف من العمليات." data-en="Organizes and leads any criminal case and distributes units on site assigned by operations.">يقوم بتنظيم وقيادة أي حالة جنائية وتوزيع الوحدات في الموقع بتكليف من العمليات.</p>
+          </div>
+          <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
+            <strong class="text-primary block mb-1" data-ar="4. المتفاوض:" data-en="4. Negotiator:">4. المتفاوض:</strong>
+            <p class="text-textMuted" data-ar="حلقة الوصل الرسمية بين الشرطة والمجرمين للوصول لحل سلمي وحماية الرهائن." data-en="Official communication link between police and criminals to reach a peaceful solution and protect hostages.">حلقة الوصل الرسمية بين الشرطة والمجرمين للوصول لحل سلمي وحماية الرهائن.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Radio Channels Section -->
+      <section id="sec-radio" class="rounded-xl border border-border bg-card p-5 space-y-4">
+        <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
+          📡 <span data-ar="موجات الراديو (Radio Channels)" data-en="Radio Channels">موجات الراديو (Radio Channels)</span>
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-right text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-border text-primary">
+                <th class="py-2 px-3" data-ar="الموجة" data-en="Channel">الموجة</th>
+                <th class="py-2 px-3" data-ar="الاستخدام / القطاع" data-en="Usage / Sector">الاستخدام / القطاع</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60 text-textMuted">
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الأولى" data-en="Channel 1">الموجة الأولى</td>
+                <td class="py-2 px-3" data-ar="لقطاع الشرطة (وجب وجود مركز عمليات)" data-en="Police sector (Operations center required)">لقطاع الشرطة (وجب وجود مركز عمليات)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الثانية" data-en="Channel 2">الموجة الثانية</td>
+                <td class="py-2 px-3" data-ar="لقطاع الشرطة (وجب وجود مركز عمليات)" data-en="Police sector (Operations center required)">لقطاع الشرطة (وجب وجود مركز عمليات)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الثالثة" data-en="Channel 3">الموجة الثالثة</td>
+                <td class="py-2 px-3" data-ar="الحالات الجنائية للمطاردات الشرطة" data-en="Police pursuit criminal cases">الحالات الجنائية للمطاردات الشرطة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الرابعة" data-en="Channel 4">الموجة الرابعة</td>
+                <td class="py-2 px-3" data-ar="الحالات الجنائية للمطاردات التروبر" data-en="Trooper pursuit criminal cases">الحالات الجنائية للمطاردات التروبر</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الخامسة" data-en="Channel 5">الموجة الخامسة</td>
+                <td class="py-2 px-3" data-ar="التعامل مع المجرمين في الزنزانات والتافيك للشرطة" data-en="Handling criminals in cells and police traffic">التعامل مع المجرمين في الزنزانات والتافيك للشرطة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة السادسة" data-en="Channel 6">الموجة السادسة</td>
+                <td class="py-2 px-3" data-ar="من سرقة بقالة إلى سرقة مصرف" data-en="From store robbery to bank robbery">من سرقة بقالة إلى سرقة مصرف</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة السابعة" data-en="Channel 7">الموجة السابعة</td>
+                <td class="py-2 px-3" data-ar="من سرقة البوبكات إلى سرقة البنك المركزي" data-en="From Bobcat robbery to Central Bank robbery">من سرقة البوبكات إلى سرقة البنك المركزي</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الثامنة" data-en="Channel 8">الموجة الثامنة</td>
+                <td class="py-2 px-3" data-ar="تدريب الونقات العسكرية" data-en="Military wings training">تدريب الونقات العسكرية</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة التاسعة" data-en="Channel 9">الموجة التاسعة</td>
+                <td class="py-2 px-3" data-ar="تدريب الأكاديمية العسكرية" data-en="Military academy training">تدريب الأكاديمية العسكرية</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة العاشرة" data-en="Channel 10">الموجة العاشرة</td>
+                <td class="py-2 px-3 text-red-400 font-semibold" data-ar="للقادات (يمنع دخوله منعاً باتاً للأفراد - مسؤول الفترة/العمليات)" data-en="Commanders only (Strictly prohibited for personnel - Shift/Ops supervisor)">للقادات (يمنع دخوله منعاً باتاً للأفراد - مسؤول الفترة/العمليات)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجات 11 إلى 15" data-en="Channels 11 to 15">الموجات 11 إلى 15</td>
+                <td class="py-2 px-3" data-ar="الصحة والخدمات الطبية" data-en="Health and medical services">الصحة والخدمات الطبية</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجات 16 و 17" data-en="Channels 16 & 17">الموجات 16 و 17</td>
+                <td class="py-2 px-3" data-ar="وحدة العصابات (Gang Unit)" data-en="Gang Unit">وحدة العصابات (Gang Unit)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجات 18 و 19" data-en="Channels 18 & 19">الموجات 18 & 19</td>
+                <td class="py-2 px-3" data-ar="إف بي أي (FBI)" data-en="FBI">إف بي أي (FBI)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة 20" data-en="Channel 20">الموجة 20</td>
+                <td class="py-2 px-3" data-ar="المحاكمات العسكرية" data-en="Military trials">المحاكمات العسكرية</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- General Status Codes Section -->
+      <section id="sec-status-codes" class="rounded-xl border border-border bg-card p-5 space-y-4">
+        <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
+          🚨 <span data-ar="أكواد الحالة العامة (General Status Codes)" data-en="General Status Codes">أكواد الحالة العامة (General Status Codes)</span>
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-right text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-border text-primary">
+                <th class="py-2 px-3" data-ar="الكود" data-en="Code">الكود</th>
+                <th class="py-2 px-3" data-ar="النطق" data-en="Pronunciation">النطق</th>
+                <th class="py-2 px-3" data-ar="معنى الكود / الحالة" data-en="Meaning / Status">معنى الكود / الحالة</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60 text-textMuted">
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">Code 0</td>
+                <td class="py-2 px-3 text-amber-400" data-ar="كود زيرو" data-en="Code Zero">كود زيرو</td>
+                <td class="py-2 px-3" data-ar="عموم الوحدات تتوجه للحالة (استنفار أمني)" data-en="All units head to the scene (Security alert)">عموم الوحدات تتوجه للحالة (استنفار أمني)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">Code 1</td>
+                <td class="py-2 px-3 text-amber-400" data-ar="كود ون" data-en="Code One">كود ون</td>
+                <td class="py-2 px-3" data-ar="إغلاق صافرات الشرطة" data-en="Disable police sirens">إغلاق صافرات الشرطة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">Code 2</td>
+                <td class="py-2 px-3 text-amber-400" data-ar="كود تو" data-en="Code Two">كود تو</td>
+                <td class="py-2 px-3" data-ar="تشغيل الصافرات بدون الصوت" data-en="Lights without siren sound">تشغيل الصافرات بدون الصوت</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">Code 3</td>
+                <td class="py-2 px-3 text-amber-400" data-ar="كود ثري" data-en="Code Three">كود ثري</td>
+                <td class="py-2 px-3" data-ar="تشغيل الصافرات مع الصوت" data-en="Lights with siren sound">تشغيل الصافرات مع الصوت</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">Code 7</td>
+                <td class="py-2 px-3 text-amber-400" data-ar="كود سفن" data-en="Code Seven">كود سفن</td>
+                <td class="py-2 px-3" data-ar="الشخص اختفى أو صار له سحر" data-en="Person disappeared or glitched">الشخص اختفى أو صار له سحر</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 10-Codes & 20-Codes Section -->
+      <section id="sec-ten-codes" class="rounded-xl border border-border bg-card p-5 space-y-4">
+        <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
+          📻 <span data-ar="أكواد 10-Codes & 20-Codes" data-en="10-Codes & 20-Codes">أكواد 10-Codes & 20-Codes</span>
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-right text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-border text-primary">
+                <th class="py-2 px-3" data-ar="الكود" data-en="Code">الكود</th>
+                <th class="py-2 px-3" data-ar="النطق" data-en="Pronunciation">النطق</th>
+                <th class="py-2 px-3" data-ar="معنى الكود / الحالة" data-en="Meaning / Status">معنى الكود / الحالة</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/60 text-textMuted">
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-1</td>
+                <td class="py-2 px-3" data-ar="زيرو ون" data-en="Zero One">زيرو ون</td>
+                <td class="py-2 px-3" data-ar="الموقع أمن" data-en="Location secure">الموقع أمن</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-2</td>
+                <td class="py-2 px-3" data-ar="زيرو تو" data-en="Zero Two">زيرو تو</td>
+                <td class="py-2 px-3" data-ar="الإشارة واضحة" data-en="Signal clear">الإشارة واضحة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-3</td>
+                <td class="py-2 px-3" data-ar="زيرو ثري" data-en="Zero Three">زيرو ثري</td>
+                <td class="py-2 px-3" data-ar="التأكد من الإشارة" data-en="Check signal">التأكد من الإشارة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-5</td>
+                <td class="py-2 px-3" data-ar="زيرو فايف" data-en="Zero Five">زيرو فايف</td>
+                <td class="py-2 px-3" data-ar="استراحة" data-en="Break / Rest">استراحة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-6</td>
+                <td class="py-2 px-3" data-ar="زيرو سكس" data-en="Zero Six">زيرو سكس</td>
+                <td class="py-2 px-3" data-ar="كرر البلاغ" data-en="Repeat transmission">كرر البلاغ</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-7</td>
+                <td class="py-2 px-3" data-ar="زيرو سفن" data-en="Zero Seven">زيرو سفن</td>
+                <td class="py-2 px-3" data-ar="تسجيل خروج" data-en="Sign off / Off duty">تسجيل خروج</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-8</td>
+                <td class="py-2 px-3" data-ar="زيرو أيت" data-en="Zero Eight">زيرو أيت</td>
+                <td class="py-2 px-3" data-ar="تسجيل دخول" data-en="Sign on / On duty">تسجيل دخول</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">0-33</td>
+                <td class="py-2 px-3" data-ar="زيرو ثيرتي ثري" data-en="Zero Thirty Three">زيرو ثيرتي ثري</td>
+                <td class="py-2 px-3 text-red-400 font-semibold" data-ar="عسكري مسقط" data-en="Officer down">عسكري مسقط</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-0</td>
+                <td class="py-2 px-3" data-ar="تين زيرو" data-en="Ten Zero">تين زيرو</td>
+                <td class="py-2 px-3" data-ar="إلغاء البلاغ أو بلاغ كاذب" data-en="Cancel call or false alarm">إلغاء البلاغ أو بلاغ كاذب</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-1</td>
+                <td class="py-2 px-3" data-ar="تن ون" data-en="Ten One">تن ون</td>
+                <td class="py-2 px-3" data-ar="مطاردة مركبة" data-en="Vehicle pursuit">مطاردة مركبة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-2</td>
+                <td class="py-2 px-3" data-ar="تن تو" data-en="Ten Two">تن تو</td>
+                <td class="py-2 px-3" data-ar="غير صحيح" data-en="Incorrect / Negative">غير صحيح</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-3</td>
+                <td class="py-2 px-3" data-ar="تن ثري" data-en="Ten Three">تن ثري</td>
+                <td class="py-2 px-3" data-ar="استيقاف مروري" data-en="Traffic stop">استيقاف مروري</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-4</td>
+                <td class="py-2 px-3" data-ar="تن فور" data-en="Ten Four">تن فور</td>
+                <td class="py-2 px-3" data-ar="صحيح / مفهوم" data-en="Acknowledged / Copy">صحيح / مفهوم</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-5</td>
+                <td class="py-2 px-3" data-ar="تن فايف" data-en="Ten Five">تن فايف</td>
+                <td class="py-2 px-3" data-ar="سرقة مركبة" data-en="Vehicle theft">سرقة مركبة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-6</td>
+                <td class="py-2 px-3" data-ar="تن سكس" data-en="Ten Six">تن سكس</td>
+                <td class="py-2 px-3" data-ar="سرقة منزل" data-en="House robbery">سرقة منزل</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-7</td>
+                <td class="py-2 px-3" data-ar="تن سفن" data-en="Ten Seven">تن سفن</td>
+                <td class="py-2 px-3" data-ar="سرقة بقالة" data-en="Store robbery">سرقة بقالة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-8</td>
+                <td class="py-2 px-3" data-ar="تن أيت" data-en="Ten Eight">تن أيت</td>
+                <td class="py-2 px-3" data-ar="سرقة المجوهرات" data-en="Jewelry store robbery">سرقة المجوهرات</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-9</td>
+                <td class="py-2 px-3" data-ar="تن ناين" data-en="Ten Nine">تن ناين</td>
+                <td class="py-2 px-3" data-ar="سرقة مصرف" data-en="Bank robbery">سرقة مصرف</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-10</td>
+                <td class="py-2 px-3" data-ar="تن تن" data-en="Ten Ten">تن تن</td>
+                <td class="py-2 px-3" data-ar="سرقة البوب كات" data-en="Bobcat security robbery">سرقة البوب كات</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-11</td>
+                <td class="py-2 px-3" data-ar="تن إيلفن" data-en="Ten Eleven">تن إيلفن</td>
+                <td class="py-2 px-3" data-ar="سرقة محل أسلحة" data-en="Ammu-Nation robbery">سرقة محل أسلحة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-12</td>
+                <td class="py-2 px-3" data-ar="تن تويلف" data-en="Ten Twelve">تن تويلف</td>
+                <td class="py-2 px-3" data-ar="سرقة كونتينر" data-en="Container robbery">سرقة كونتينر</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-13</td>
+                <td class="py-2 px-3" data-ar="تن ثيرتين" data-en="Ten Thirteen">تن ثيرتين</td>
+                <td class="py-2 px-3" data-ar="سرقة اليخت" data-en="Yacht robbery">سرقة اليخت</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-14</td>
+                <td class="py-2 px-3" data-ar="تن فورتين" data-en="Ten Fourteen">تن فورتين</td>
+                <td class="py-2 px-3" data-ar="سرقة المستودع" data-en="Warehouse robbery">سرقة المستودع</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-15</td>
+                <td class="py-2 px-3" data-ar="تن فيفتين" data-en="Ten Fifteen">تن فيفتين</td>
+                <td class="py-2 px-3" data-ar="سرقة البنك المركزي" data-en="Central Bank robbery">سرقة البنك المركزي</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-17</td>
+                <td class="py-2 px-3" data-ar="تن سفنتين" data-en="Ten Seventeen">تن سفنتين</td>
+                <td class="py-2 px-3" data-ar="سرقة المتحف" data-en="Museum robbery">سرقة المتحف</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">10-19</td>
+                <td class="py-2 px-3" data-ar="تن ناينتين" data-en="Ten Nineteen">تن ناينتين</td>
+                <td class="py-2 px-3" data-ar="مطاردة على الأقدام" data-en="Foot pursuit">مطاردة على الأقدام</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">20-1</td>
+                <td class="py-2 px-3" data-ar="توني ون" data-en="Twenty One">توني ون</td>
+                <td class="py-2 px-3" data-ar="تجمع عصابات" data-en="Gang gathering">تجمع عصابات</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">20-2</td>
+                <td class="py-2 px-3" data-ar="توني تو" data-en="Twenty Two">توني تو</td>
+                <td class="py-2 px-3 text-red-400 font-semibold" data-ar="طلق نار" data-en="Shots fired">طلق نار</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">20-3</td>
+                <td class="py-2 px-3" data-ar="توني ثري" data-en="Twenty Three">توني ثري</td>
+                <td class="py-2 px-3" data-ar="احتاج دعم" data-en="Need backup">احتاج دعم</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">20-4</td>
+                <td class="py-2 px-3" data-ar="توني فور" data-en="Twenty Four">توني فور</td>
+                <td class="py-2 px-3" data-ar="يوجد رهينة في الموقع" data-en="Hostage on site">يوجد رهينة في الموقع</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">20-5</td>
+                <td class="py-2 px-3" data-ar="توني فايف" data-en="Twenty Five">توني فايف</td>
+                <td class="py-2 px-3" data-ar="هروب من السجن" data-en="Prison break">هروب من السجن</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">20-7</td>
+                <td class="py-2 px-3" data-ar="توني سفن" data-en="Twenty Seven">توني سفن</td>
+                <td class="py-2 px-3" data-ar="العسكري عنده حالة" data-en="Officer has an issue">العسكري عنده حالة</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-bold text-white">dispatch</td>
+                <td class="py-2 px-3" data-ar="دسباتش" data-en="Dispatch">دسباتش</td>
+                <td class="py-2 px-3" data-ar="مركز العمليات" data-en="Operations Center">مركز العمليات</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    function switchTab(tab) {
+      console.log('Switching to tab:', tab);
+      // Tab switching logic will be added
+    }
+
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function toggleLanguage() {
+      // Language toggle logic will be added
+    }
+  </script>
+</body>
+</html>
