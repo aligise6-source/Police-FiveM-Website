@@ -49,10 +49,13 @@
       border: 1px solid #1f2937;
     }
     .tab-view {
-      display: none;
+      display: none !important;
     }
     .tab-view.active {
-      display: block;
+      display: block !important;
+    }
+    .nav-btn {
+      cursor: pointer;
     }
     .nav-btn.active {
       background-color: #3b82f6 !important;
@@ -117,34 +120,34 @@
     <div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 overflow-x-auto">
       <div class="inline-flex items-center gap-1 bg-[#0b101d] border border-slate-800 rounded-full p-1.5 shadow-inner min-w-max">
         
-        <button onclick="switchTab('citizen')" id="nav-citizen" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="بوابة المواطن" data-en="Citizen Portal">بوابة المواطن</button>
-        <button onclick="switchTab('apply')" id="nav-apply" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="التقديم" data-en="Apply">التقديم</button>
-        <button onclick="switchTab('news')" id="nav-news" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأخبار" data-en="News">الأخبار</button>
-        <button onclick="switchTab('courts')" id="nav-courts" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المحاكم" data-en="Courts">المحاكم</button>
-        <button onclick="switchTab('wanted')" id="nav-wanted" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المطلوبين" data-en="Wanted">المطلوبين</button>
-        <button onclick="switchTab('roster')" id="nav-roster" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الروستر" data-en="Roster">الروستر</button>
-        <button onclick="switchTab('departments')" id="nav-departments" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأقسام" data-en="Departments">الأقسام</button>
-        <button onclick="switchTab('schedule')" id="nav-schedule" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الجدول" data-en="Schedule">الجدول</button>
-        <button onclick="switchTab('manual')" id="nav-manual" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-md transition active" data-ar="الرئيسية" data-en="Main">الرئيسية</button>
+        <button onclick="window.switchTab('citizen')" id="nav-citizen" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="بوابة المواطن" data-en="Citizen Portal">بوابة المواطن</button>
+        <button onclick="window.switchTab('apply')" id="nav-apply" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="التقديم" data-en="Apply">التقديم</button>
+        <button onclick="window.switchTab('news')" id="nav-news" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأخبار" data-en="News">الأخبار</button>
+        <button onclick="window.switchTab('courts')" id="nav-courts" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المحاكم" data-en="Courts">المحاكم</button>
+        <button onclick="window.switchTab('wanted')" id="nav-wanted" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المطلوبين" data-en="Wanted">المطلوبين</button>
+        <button onclick="window.switchTab('roster')" id="nav-roster" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الروستر" data-en="Roster">الروستر</button>
+        <button onclick="window.switchTab('departments')" id="nav-departments" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأقسام" data-en="Departments">الأقسام</button>
+        <button onclick="window.switchTab('schedule')" id="nav-schedule" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الجدول" data-en="Schedule">الجدول</button>
+        <button onclick="window.switchTab('manual')" id="nav-manual" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-md transition" data-ar="الرئيسية" data-en="Main">الرئيسية</button>
         
         <!-- Language Toggle Button -->
-        <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full text-xs font-bold text-amber-400 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 transition flex items-center gap-1 ml-2">
+        <button onclick="window.toggleLanguage()" class="px-3 py-1.5 rounded-full text-xs font-bold text-amber-400 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 transition flex items-center gap-1 ml-2" style="cursor: pointer;">
           🌐 <span id="langLabel">AR</span>
         </button>
       </div>
 
       <!-- Sub Navigation Buttons for Field Manual -->
-      <div id="manualSubNav" class="flex flex-wrap items-center gap-2 pt-3 mt-3 border-t border-slate-800/60 w-full">
-        <button onclick="scrollToSection('sec-terms')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="مصطلحات عامة" data-en="General Terms">مصطلحات عامة</button>
-        <button onclick="scrollToSection('sec-radio')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="موجات الراديو" data-en="Radio Channels">موجات الراديو</button>
-        <button onclick="scrollToSection('sec-status-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أكواد الحالة" data-en="Status Codes">أكواد الحالة</button>
-        <button onclick="scrollToSection('sec-ten-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أكواد 10 و 20" data-en="10 & 20 Codes">أكواد 10 و 20</button>
-        <button onclick="scrollToSection('sec-shooting')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="قوانين إطلاق النار" data-en="Shooting Rules">قوانين إطلاق النار</button>
-        <button onclick="scrollToSection('sec-clashes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="التعامل مع الاشتباكات" data-en="Clashes Handling">التعامل مع الاشتباكات</button>
-        <button onclick="scrollToSection('sec-arrest')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="إلقاء القبض والحقوق" data-en="Arrest & Rights">إلقاء القبض والحقوق</button>
-        <button onclick="scrollToSection('sec-traffic')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="الاستيقاف المروري" data-en="Traffic Stop">الاستيقاف المروري</button>
-        <button onclick="scrollToSection('sec-escape')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="شروط الخروج الآمن" data-en="Safe Escape">شروط الخروج الآمن</button>
-        <button onclick="scrollToSection('sec-units')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أعداد الوحدات" data-en="Unit Numbers">أعداد الوحدات</button>
+      <div id="manualSubNav" class="hidden flex-wrap items-center gap-2 pt-3 mt-3 border-t border-slate-800/60 w-full">
+        <button onclick="window.scrollToSection('sec-terms')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="مصطلحات عامة" data-en="General Terms">مصطلحات عامة</button>
+        <button onclick="window.scrollToSection('sec-radio')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="موجات الراديو" data-en="Radio Channels">موجات الراديو</button>
+        <button onclick="window.scrollToSection('sec-status-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أكواد الحالة" data-en="Status Codes">أكواد الحالة</button>
+        <button onclick="window.scrollToSection('sec-ten-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أكواد 10 و 20" data-en="10 & 20 Codes">أكواد 10 و 20</button>
+        <button onclick="window.scrollToSection('sec-shooting')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="قوانين إطلاق النار" data-en="Shooting Rules">قوانين إطلاق النار</button>
+        <button onclick="window.scrollToSection('sec-clashes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="التعامل مع الاشتباكات" data-en="Clashes Handling">التعامل مع الاشتباكات</button>
+        <button onclick="window.scrollToSection('sec-arrest')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="إلقاء القبض والحقوق" data-en="Arrest & Rights">إلقاء القبض والحقوق</button>
+        <button onclick="window.scrollToSection('sec-traffic')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="الاستيقاف المروري" data-en="Traffic Stop">الاستيقاف المروري</button>
+        <button onclick="window.scrollToSection('sec-escape')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="شروط الخروج الآمن" data-en="Safe Escape">شروط الخروج الآمن</button>
+        <button onclick="window.scrollToSection('sec-units')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أعداد الوحدات" data-en="Unit Numbers">أعداد الوحدات</button>
       </div>
     </div>
   </section>
@@ -315,171 +318,39 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-border/60 text-textMuted">
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-1</td>
-                <td class="py-2 px-3" data-ar="زيرو ون" data-en="Zero One">زيرو ون</td>
-                <td class="py-2 px-3" data-ar="الموقع أمن" data-en="Location secure">الموقع أمن</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-2</td>
-                <td class="py-2 px-3" data-ar="زيرو تو" data-en="Zero Two">زيرو تو</td>
-                <td class="py-2 px-3" data-ar="الإشارة واضحة" data-en="Signal clear">الإشارة واضحة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-3</td>
-                <td class="py-2 px-3" data-ar="زيرو ثري" data-en="Zero Three">زيرو ثري</td>
-                <td class="py-2 px-3" data-ar="التأكد من الإشارة" data-en="Check signal">التأكد من الإشارة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-5</td>
-                <td class="py-2 px-3" data-ar="زيرو فايف" data-en="Zero Five">زيرو فايف</td>
-                <td class="py-2 px-3" data-ar="استراحة" data-en="Break / Rest">استراحة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-6</td>
-                <td class="py-2 px-3" data-ar="زيرو سكس" data-en="Zero Six">زيرو سكس</td>
-                <td class="py-2 px-3" data-ar="كرر البلاغ" data-en="Repeat transmission">كرر البلاغ</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-7</td>
-                <td class="py-2 px-3" data-ar="زيرو سفن" data-en="Zero Seven">زيرو سفن</td>
-                <td class="py-2 px-3" data-ar="تسجيل خروج" data-en="Sign off / Off duty">تسجيل خروج</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-8</td>
-                <td class="py-2 px-3" data-ar="زيرو أيت" data-en="Zero Eight">زيرو أيت</td>
-                <td class="py-2 px-3" data-ar="تسجيل دخول" data-en="Sign on / On duty">تسجيل دخول</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">0-33</td>
-                <td class="py-2 px-3" data-ar="زيرو ثيرتي ثري" data-en="Zero Thirty Three">زيرو ثيرتي ثري</td>
-                <td class="py-2 px-3 text-red-400 font-semibold" data-ar="عسكري مسقط" data-en="Officer down">عسكري مسقط</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-0</td>
-                <td class="py-2 px-3" data-ar="تين زيرو" data-en="Ten Zero">تين زيرو</td>
-                <td class="py-2 px-3" data-ar="إلغاء البلاغ أو بلاغ كاذب" data-en="Cancel call or false alarm">إلغاء البلاغ أو بلاغ كاذب</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-1</td>
-                <td class="py-2 px-3" data-ar="تن ون" data-en="Ten One">تن ون</td>
-                <td class="py-2 px-3" data-ar="مطاردة مركبة" data-en="Vehicle pursuit">مطاردة مركبة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-2</td>
-                <td class="py-2 px-3" data-ar="تن تو" data-en="Ten Two">تن تو</td>
-                <td class="py-2 px-3" data-ar="غير صحيح" data-en="Incorrect / Negative">غير صحيح</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-3</td>
-                <td class="py-2 px-3" data-ar="تن ثري" data-en="Ten Three">تن ثري</td>
-                <td class="py-2 px-3" data-ar="استيقاف مروري" data-en="Traffic stop">استيقاف مروري</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-4</td>
-                <td class="py-2 px-3" data-ar="تن فور" data-en="Ten Four">تن فور</td>
-                <td class="py-2 px-3" data-ar="صحيح / مفهوم" data-en="Acknowledged / Copy">صحيح / مفهوم</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-5</td>
-                <td class="py-2 px-3" data-ar="تن فايف" data-en="Ten Five">تن فايف</td>
-                <td class="py-2 px-3" data-ar="سرقة مركبة" data-en="Vehicle theft">سرقة مركبة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-6</td>
-                <td class="py-2 px-3" data-ar="تن سكس" data-en="Ten Six">تن سكس</td>
-                <td class="py-2 px-3" data-ar="سرقة منزل" data-en="House robbery">سرقة منزل</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-7</td>
-                <td class="py-2 px-3" data-ar="تن سفن" data-en="Ten Seven">تن سفن</td>
-                <td class="py-2 px-3" data-ar="سرقة بقالة" data-en="Store robbery">سرقة بقالة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-8</td>
-                <td class="py-2 px-3" data-ar="تن أيت" data-en="Ten Eight">تن أيت</td>
-                <td class="py-2 px-3" data-ar="سرقة المجوهرات" data-en="Jewelry store robbery">سرقة المجوهرات</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-9</td>
-                <td class="py-2 px-3" data-ar="تن ناين" data-en="Ten Nine">تن ناين</td>
-                <td class="py-2 px-3" data-ar="سرقة مصرف" data-en="Bank robbery">سرقة مصرف</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-10</td>
-                <td class="py-2 px-3" data-ar="تن تن" data-en="Ten Ten">تن تن</td>
-                <td class="py-2 px-3" data-ar="سرقة البوب كات" data-en="Bobcat security robbery">سرقة البوب كات</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-11</td>
-                <td class="py-2 px-3" data-ar="تن إيلفن" data-en="Ten Eleven">تن إيلفن</td>
-                <td class="py-2 px-3" data-ar="سرقة محل أسلحة" data-en="Ammu-Nation robbery">سرقة محل أسلحة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-12</td>
-                <td class="py-2 px-3" data-ar="تن تويلف" data-en="Ten Twelve">تن تويلف</td>
-                <td class="py-2 px-3" data-ar="سرقة كونتينر" data-en="Container robbery">سرقة كونتينر</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-13</td>
-                <td class="py-2 px-3" data-ar="تن ثيرتين" data-en="Ten Thirteen">تن ثيرتين</td>
-                <td class="py-2 px-3" data-ar="سرقة اليخت" data-en="Yacht robbery">سرقة اليخت</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-14</td>
-                <td class="py-2 px-3" data-ar="تن فورتين" data-en="Ten Fourteen">تن فورتين</td>
-                <td class="py-2 px-3" data-ar="سرقة المستودع" data-en="Warehouse robbery">سرقة المستودع</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-15</td>
-                <td class="py-2 px-3" data-ar="تن فيفتين" data-en="Ten Fifteen">تن فيفتين</td>
-                <td class="py-2 px-3" data-ar="سرقة البنك المركزي" data-en="Central Bank robbery">سرقة البنك المركزي</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-17</td>
-                <td class="py-2 px-3" data-ar="تن سفنتين" data-en="Ten Seventeen">تن سفنتين</td>
-                <td class="py-2 px-3" data-ar="سرقة المتحف" data-en="Museum robbery">سرقة المتحف</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">10-19</td>
-                <td class="py-2 px-3" data-ar="تن ناينتين" data-en="Ten Nineteen">تن ناينتين</td>
-                <td class="py-2 px-3" data-ar="مطاردة على الأقدام" data-en="Foot pursuit">مطاردة على الأقدام</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">20-1</td>
-                <td class="py-2 px-3" data-ar="توني ون" data-en="Twenty One">توني ون</td>
-                <td class="py-2 px-3" data-ar="تجمع عصابات" data-en="Gang gathering">تجمع عصابات</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">20-2</td>
-                <td class="py-2 px-3" data-ar="توني تو" data-en="Twenty Two">توني تو</td>
-                <td class="py-2 px-3 text-red-400 font-semibold" data-ar="طلق نار" data-en="Shots fired">طلق نار</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">20-3</td>
-                <td class="py-2 px-3" data-ar="توني ثري" data-en="Twenty Three">توني ثري</td>
-                <td class="py-2 px-3" data-ar="احتاج دعم" data-en="Need backup">احتاج دعم</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">20-4</td>
-                <td class="py-2 px-3" data-ar="توني فور" data-en="Twenty Four">توني فور</td>
-                <td class="py-2 px-3" data-ar="يوجد رهينة في الموقع" data-en="Hostage on site">يوجد رهينة في الموقع</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">20-5</td>
-                <td class="py-2 px-3" data-ar="توني فايف" data-en="Twenty Five">توني فايف</td>
-                <td class="py-2 px-3" data-ar="هروب من السجن" data-en="Prison break">هروب من السجن</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">20-7</td>
-                <td class="py-2 px-3" data-ar="توني سفن" data-en="Twenty Seven">توني سفن</td>
-                <td class="py-2 px-3" data-ar="العسكري عنده حالة" data-en="Officer has an issue">العسكري عنده حالة</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">dispatch</td>
-                <td class="py-2 px-3" data-ar="دسباتش" data-en="Dispatch">دسباتش</td>
-                <td class="py-2 px-3" data-ar="مركز العمليات" data-en="Operations Center">مركز العمليات</td>
-              </tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-1</td><td class="py-2 px-3" data-ar="زيرو ون" data-en="Zero One">زيرو ون</td><td class="py-2 px-3" data-ar="الموقع أمن" data-en="Location secure">الموقع أمن</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-2</td><td class="py-2 px-3" data-ar="زيرو تو" data-en="Zero Two">زيرو تو</td><td class="py-2 px-3" data-ar="الإشارة واضحة" data-en="Signal clear">الإشارة واضحة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-3</td><td class="py-2 px-3" data-ar="زيرو ثري" data-en="Zero Three">زيرو ثري</td><td class="py-2 px-3" data-ar="التأكد من الإشارة" data-en="Check signal">التأكد من الإشارة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-5</td><td class="py-2 px-3" data-ar="زيرو فايف" data-en="Zero Five">زيرو فايف</td><td class="py-2 px-3" data-ar="استراحة" data-en="Break / Rest">استراحة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-6</td><td class="py-2 px-3" data-ar="زيرو سكس" data-en="Zero Six">زيرو سكس</td><td class="py-2 px-3" data-ar="كرر البلاغ" data-en="Repeat transmission">كرر البلاغ</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-7</td><td class="py-2 px-3" data-ar="زيرو سفن" data-en="Zero Seven">زيرو سفن</td><td class="py-2 px-3" data-ar="تسجيل خروج" data-en="Sign off / Off duty">تسجيل خروج</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-8</td><td class="py-2 px-3" data-ar="زيرو أيت" data-en="Zero Eight">زيرو أيت</td><td class="py-2 px-3" data-ar="تسجيل دخول" data-en="Sign on / On duty">تسجيل دخول</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">0-33</td><td class="py-2 px-3" data-ar="زيرو ثيرتي ثري" data-en="Zero Thirty Three">زيرو ثيرتي ثري</td><td class="py-2 px-3 text-red-400 font-semibold" data-ar="عسكري مسقط" data-en="Officer down">عسكري مسقط</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-0</td><td class="py-2 px-3" data-ar="تين زيرو" data-en="Ten Zero">تين زيرو</td><td class="py-2 px-3" data-ar="إلغاء البلاغ أو بلاغ كاذب" data-en="Cancel call or false alarm">إلغاء البلاغ أو بلاغ كاذب</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-1</td><td class="py-2 px-3" data-ar="تن ون" data-en="Ten One">تن ون</td><td class="py-2 px-3" data-ar="مطاردة مركبة" data-en="Vehicle pursuit">مطاردة مركبة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-2</td><td class="py-2 px-3" data-ar="تن تو" data-en="Ten Two">تن تو</td><td class="py-2 px-3" data-ar="غير صحيح" data-en="Incorrect / Negative">غير صحيح</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-3</td><td class="py-2 px-3" data-ar="تن ثري" data-en="Ten Three">تن ثري</td><td class="py-2 px-3" data-ar="استيقاف مروري" data-en="Traffic stop">استيقاف مروري</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-4</td><td class="py-2 px-3" data-ar="تن فور" data-en="Ten Four">تن فور</td><td class="py-2 px-3" data-ar="صحيح / مفهوم" data-en="Acknowledged / Copy">صحيح / مفهوم</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-5</td><td class="py-2 px-3" data-ar="تن فايف" data-en="Ten Five">تن فايف</td><td class="py-2 px-3" data-ar="سرقة مركبة" data-en="Vehicle theft">سرقة مركبة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-6</td><td class="py-2 px-3" data-ar="تن سكس" data-en="Ten Six">تن سكس</td><td class="py-2 px-3" data-ar="سرقة منزل" data-en="House robbery">سرقة منزل</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-7</td><td class="py-2 px-3" data-ar="تن سفن" data-en="Ten Seven">تن سفن</td><td class="py-2 px-3" data-ar="سرقة بقالة" data-en="Store robbery">سرقة بقالة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-8</td><td class="py-2 px-3" data-ar="تن أيت" data-en="Ten Eight">تن أيت</td><td class="py-2 px-3" data-ar="سرقة المجوهرات" data-en="Jewelry store robbery">سرقة المجوهرات</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-9</td><td class="py-2 px-3" data-ar="تن ناين" data-en="Ten Nine">تن ناين</td><td class="py-2 px-3" data-ar="سرقة مصرف" data-en="Bank robbery">سرقة مصرف</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-10</td><td class="py-2 px-3" data-ar="تن تن" data-en="Ten Ten">تن تن</td><td class="py-2 px-3" data-ar="سرقة البوب كات" data-en="Bobcat security robbery">سرقة البوب كات</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-11</td><td class="py-2 px-3" data-ar="تن إيلفن" data-en="Ten Eleven">تن إيلفن</td><td class="py-2 px-3" data-ar="سرقة محل أسلحة" data-en="Ammu-Nation robbery">سرقة محل أسلحة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-12</td><td class="py-2 px-3" data-ar="تن تويلف" data-en="Ten Twelve">تن تويلف</td><td class="py-2 px-3" data-ar="سرقة كونتينر" data-en="Container robbery">سرقة كونتينر</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-13</td><td class="py-2 px-3" data-ar="تن ثيرتين" data-en="Ten Thirteen">تن ثيرتين</td><td class="py-2 px-3" data-ar="سرقة اليخت" data-en="Yacht robbery">سرقة اليخت</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-14</td><td class="py-2 px-3" data-ar="تن فورتين" data-en="Ten Fourteen">تن فورتين</td><td class="py-2 px-3" data-ar="سرقة المستودع" data-en="Warehouse robbery">سرقة المستودع</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-15</td><td class="py-2 px-3" data-ar="تن فيفتين" data-en="Ten Fifteen">تن فيفتين</td><td class="py-2 px-3" data-ar="سرقة البنك المركزي" data-en="Central Bank robbery">سرقة البنك المركزي</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-17</td><td class="py-2 px-3" data-ar="تن سفنتين" data-en="Ten Seventeen">تن سفنتين</td><td class="py-2 px-3" data-ar="سرقة المتحف" data-en="Museum robbery">سرقة المتحف</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">10-19</td><td class="py-2 px-3" data-ar="تن ناينتين" data-en="Ten Nineteen">تن ناينتين</td><td class="py-2 px-3" data-ar="مطاردة على الأقدام" data-en="Foot pursuit">مطاردة على الأقدام</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">20-1</td><td class="py-2 px-3" data-ar="توني ون" data-en="Twenty One">توني ون</td><td class="py-2 px-3" data-ar="تجمع عصابات" data-en="Gang gathering">تجمع عصابات</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">20-2</td><td class="py-2 px-3" data-ar="توني تو" data-en="Twenty Two">توني تو</td><td class="py-2 px-3 text-red-400 font-semibold" data-ar="طلق نار" data-en="Shots fired">طلق نار</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">20-3</td><td class="py-2 px-3" data-ar="توني ثري" data-en="Twenty Three">توني ثري</td><td class="py-2 px-3" data-ar="احتاج دعم" data-en="Need backup">احتاج دعم</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">20-4</td><td class="py-2 px-3" data-ar="توني فور" data-en="Twenty Four">توني فور</td><td class="py-2 px-3" data-ar="يوجد رهينة في الموقع" data-en="Hostage on site">يوجد رهينة في الموقع</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">20-5</td><td class="py-2 px-3" data-ar="توني فايف" data-en="Twenty Five">توني فايف</td><td class="py-2 px-3" data-ar="هروب من السجن" data-en="Prison break">هروب من السجن</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">20-7</td><td class="py-2 px-3" data-ar="توني سفن" data-en="Twenty Seven">توني سفن</td><td class="py-2 px-3" data-ar="العسكري عنده حالة" data-en="Officer has an issue">العسكري عنده حالة</td></tr>
+              <tr><td class="py-2 px-3 font-bold text-white">dispatch</td><td class="py-2 px-3" data-ar="دسباتش" data-en="Dispatch">دسباتش</td><td class="py-2 px-3" data-ar="مركز العمليات" data-en="Operations Center">مركز العمليات</td></tr>
             </tbody>
           </table>
         </div>
@@ -487,59 +358,21 @@
     </div>
 
     <!-- Placeholder divs for other tabs -->
-    <div id="view-citizen" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="محتوى بوابة المواطن قريباً" data-en="Citizen Portal content coming soon">محتوى بوابة المواطن قريباً</p>
-      </div>
-    </div>
-
-    <div id="view-apply" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="نموذج التقديم قريباً" data-en="Application form coming soon">نموذج التقديم قريباً</p>
-      </div>
-    </div>
-
-    <div id="view-news" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="الأخبار قريباً" data-en="News coming soon">الأخبار قريباً</p>
-      </div>
-    </div>
-
-    <div id="view-courts" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="محتوى المحاكم قريباً" data-en="Courts content coming soon">محتوى المحاكم قريباً</p>
-      </div>
-    </div>
-
-    <div id="view-wanted" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="قائمة المطلوبين قريباً" data-en="Wanted list coming soon">قائمة المطلوبين قريباً</p>
-      </div>
-    </div>
-
-    <div id="view-roster" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="الروستر قريباً" data-en="Roster coming soon">الروستر قريباً</p>
-      </div>
-    </div>
-
-    <div id="view-departments" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="معلومات الأقسام قريباً" data-en="Departments info coming soon">معلومات الأقسام قريباً</p>
-      </div>
-    </div>
-
-    <div id="view-schedule" class="tab-view space-y-6">
-      <div class="rounded-xl border border-border bg-card p-5 text-center">
-        <p class="text-textMuted" data-ar="الجدول الزمني قريباً" data-en="Schedule coming soon">الجدول الزمني قريباً</p>
-      </div>
-    </div>
+    <div id="view-citizen" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="محتوى بوابة المواطن قريباً" data-en="Citizen Portal content coming soon">محتوى بوابة المواطن قريباً</p></div></div>
+    <div id="view-apply" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="نموذج التقديم قريباً" data-en="Application form coming soon">نموذج التقديم قريباً</p></div></div>
+    <div id="view-news" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="الأخبار قريباً" data-en="News coming soon">الأخبار قريباً</p></div></div>
+    <div id="view-courts" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="محتوى المحاكم قريباً" data-en="Courts content coming soon">محتوى المحاكم قريباً</p></div></div>
+    <div id="view-wanted" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قائمة المطلوبين قريباً" data-en="Wanted list coming soon">قائمة المطلوبين قريباً</p></div></div>
+    <div id="view-roster" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="الروستر قريباً" data-en="Roster coming soon">الروستر قريباً</p></div></div>
+    <div id="view-departments" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="معلومات الأقسام قريباً" data-en="Departments info coming soon">معلومات الأقسام قريباً</p></div></div>
+    <div id="view-schedule" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="الجدول الزمني قريباً" data-en="Schedule coming soon">الجدول الزمني قريباً</p></div></div>
   </main>
 
   <script>
     let currentLanguage = 'ar';
 
-    function switchTab(tabName) {
+    window.switchTab = function(tabName) {
+      console.log('Switching to:', tabName);
       // Hide all tabs
       const tabs = document.querySelectorAll('.tab-view');
       tabs.forEach(tab => tab.classList.remove('active'));
@@ -559,23 +392,23 @@
         activeButton.classList.add('active');
       }
 
-      // Hide sub-nav if not manual tab
+      // Toggle sub-nav for manual tab
       const subNav = document.getElementById('manualSubNav');
       if (tabName === 'manual') {
-        subNav.style.display = 'flex';
+        subNav.classList.remove('hidden');
       } else {
-        subNav.style.display = 'none';
+        subNav.classList.add('hidden');
       }
-    }
+    };
 
-    function scrollToSection(sectionId) {
+    window.scrollToSection = function(sectionId) {
       const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }
+    };
 
-    function toggleLanguage() {
+    window.toggleLanguage = function() {
       currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
       
       const langLabel = document.getElementById('langLabel');
@@ -600,12 +433,12 @@
         htmlRoot.setAttribute('dir', 'ltr');
         htmlRoot.setAttribute('lang', 'en');
       }
-    }
+    };
 
     // Initialize - show manual tab by default
-    window.addEventListener('DOMContentLoaded', function() {
-      switchTab('manual');
-    });
+    setTimeout(() => {
+      window.switchTab('manual');
+    }, 100);
   </script>
 </body>
 </html>
