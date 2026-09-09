@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -28,7 +28,7 @@
             danger: "#ef4444",
           },
           fontFamily: {
-            sans: ['Cairo', 'sans-serif'],
+            sans: ['Tajawal', 'sans-serif'],
           }
         },
       },
@@ -36,10 +36,13 @@
   </script>
 
   <style>
+    * {
+      font-family: 'Tajawal', sans-serif !important;
+    }
     body {
       background-color: #0a0f1d;
       color: #f3f4f6;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Tajawal', sans-serif;
     }
     table {
       border-collapse: collapse;
@@ -84,6 +87,11 @@
         rgba(59, 130, 246, 0.03) 4px
       );
       pointer-events: none;
+    }
+    .rank-card {
+      background: linear-gradient(135deg, #1a3a52 0%, #0f2835 100%);
+      border: 2px solid #f59e0b;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
     }
     .modal {
       display: none;
@@ -136,7 +144,7 @@
 
     </div>
 
-    <!-- Red Sub-Header Line with Shield Logo next to LOS SANTOS POLICE DEPARTMENT -->
+    <!-- Red Sub-Header Line -->
     <div class="bg-slate-950/80 border-t border-slate-800/80 py-1.5 px-4">
       <div class="mx-auto flex max-w-7xl items-center justify-between text-xs sm:text-sm font-extrabold text-red-500 tracking-widest uppercase">
         <div class="flex items-center gap-2.5">
@@ -159,53 +167,19 @@
     <div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 overflow-x-auto">
       <div class="inline-flex items-center gap-1 bg-[#0b101d] border border-slate-800 rounded-full p-1.5 shadow-inner min-w-max">
         
-        <button onclick="window.switchTab('citizen')" id="nav-citizen" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="بوابة المواطن" data-en="Citizen Portal">
-          بوابة المواطن
-        </button>
-        <button onclick="window.switchTab('apply')" id="nav-apply" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="التقديم" data-en="Apply">
-          التقديم
-        </button>
-        <button onclick="window.switchTab('news')" id="nav-news" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأخبار" data-en="News">
-          الأخبار
-        </button>
-        <button onclick="window.switchTab('courts')" id="nav-courts" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المحاكم" data-en="Courts">
-          المحاكم
-        </button>
-        <button onclick="window.switchTab('wanted')" id="nav-wanted" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المطلوبين" data-en="Wanted List">
-          المطلوبين
-        </button>
-        <button onclick="window.switchTab('ranks')" id="nav-ranks" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الرتب" data-en="Ranks">
-          الرتب
-        </button>
-        <button onclick="window.switchTab('roster')" id="nav-roster" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الروستر" data-en="Roster">
-          الروستر
-        </button>
-        <button onclick="window.switchTab('departments')" id="nav-departments" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأقسام" data-en="Departments">
-          الأقسام
-        </button>
-        <button onclick="window.switchTab('manual')" id="nav-manual" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-md transition" data-ar="الدليل" data-en="Field Manual">
-          الدليل
-        </button>
+        <button onclick="window.switchTab('citizen')" id="nav-citizen" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="بوابة المواطن" data-en="Citizen Portal">بوابة المواطن</button>
+        <button onclick="window.switchTab('apply')" id="nav-apply" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="التقديم" data-en="Apply">التقديم</button>
+        <button onclick="window.switchTab('news')" id="nav-news" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأخبار" data-en="News">الأخبار</button>
+        <button onclick="window.switchTab('courts')" id="nav-courts" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المحاكم" data-en="Courts">المحاكم</button>
+        <button onclick="window.switchTab('wanted')" id="nav-wanted" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="المطلوبين" data-en="Wanted List">المطلوبين</button>
+        <button onclick="window.switchTab('ranks')" id="nav-ranks" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الرتب" data-en="Ranks">الرتب</button>
+        <button onclick="window.switchTab('roster')" id="nav-roster" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الروستر" data-en="Roster">الروستر</button>
+        <button onclick="window.switchTab('departments')" id="nav-departments" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition" data-ar="الأقسام" data-en="Departments">الأقسام</button>
+        <button onclick="window.switchTab('manual')" id="nav-manual" class="nav-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-blue-600 text-white shadow-md transition" data-ar="الدليل" data-en="Field Manual">الدليل</button>
         
         <!-- Language Toggle Button -->
         <button onclick="window.toggleLanguage()" class="px-3 py-1.5 rounded-full text-xs font-bold text-amber-400 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 transition flex items-center gap-1">
           🌐 <span id="langLabel">AR</span>
-        </button>
-      </div>
-
-      <!-- Sub Navigation Buttons for Field Manual -->
-      <div id="manualSubNav" class="hidden flex-wrap items-center gap-2 pt-3 mt-3 border-t border-slate-800/60 w-full">
-        <button onclick="window.scrollToSection('sec-terms')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="المصطلحات" data-en="Terms">
-          المصطلحات
-        </button>
-        <button onclick="window.scrollToSection('sec-radio')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="موجات الراديو" data-en="Radio Channels">
-          موجات الراديو
-        </button>
-        <button onclick="window.scrollToSection('sec-status-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="أكواد الحالة" data-en="Status Codes">
-          أكواد الحالة
-        </button>
-        <button onclick="window.scrollToSection('sec-ten-codes')" class="bg-slate-800/50 hover:bg-slate-800 text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg border border-slate-700/60" data-ar="الأكواد" data-en="Codes">
-          الأكواد
         </button>
       </div>
     </div>
@@ -218,193 +192,79 @@
     <div id="view-manual" class="tab-view active space-y-6">
       
       <!-- General Terms -->
-      <section id="sec-terms" class="rounded-xl border border-border bg-card p-5 space-y-4">
+      <section class="rounded-xl border border-border bg-card p-5 space-y-4">
         <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
-          📌 <span data-ar="10- مصطلحات عامة مهمة" data-en="10- General Important Terms">10- مصطلحات عامة مهمة</span>
+          📌 <span data-ar="مصطلحات عامة مهمة" data-en="General Important Terms">مصطلحات عامة مهمة</span>
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm leading-relaxed">
           <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
-            <strong class="text-primary block mb-1" data-ar="1. ديسباتش (Dispatch):" data-en="1. Dispatch:">1. ديسباتش (Dispatch):</strong>
-            <p class="text-textMuted" data-ar="مركز تنظيمي وتوجيهي لكافة الوحدات المتواجدة في الميدان لمتابعة الحالات وتوجيه الوحدات." data-en="An organizational and guidance center for all field units to monitor cases and direct units.">مركز تنظيمي وتوجيهي لكافة الوحدات المتواجدة في الميدان لمتابعة الحالات وتوجيه الوحدات.</p>
-          </div>
-          <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
-            <strong class="text-primary block mb-1" data-ar="2. نائب ديسباتش:" data-en="2. Deputy Dispatch:">2. نائب ديسباتش:</strong>
-            <p class="text-textMuted" data-ar="وسيلة مساعدة لمركز العمليات ويتولى المسؤولية عند غياب الديسباتش الأساسي." data-en="An assistant to the operations center who takes responsibility when the main dispatcher is absent.">وسيلة مساعدة لمركز العمليات ويتولى المسؤولية عند غياب الديسباتش الأساسي.</p>
-          </div>
-          <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
-            <strong class="text-primary block mb-1" data-ar="3. مسؤول الحالة:" data-en="3. Incident Commander:">3. مسؤول الحالة:</strong>
-            <p class="text-textMuted" data-ar="يقوم بتنظيم وقيادة أي حالة جنائية وتوزيع الوحدات في الموقع بتكليف من العمليات." data-en="Organizes and leads any criminal case and distributes units at the scene as assigned by operations.">يقوم بتنظيم وقيادة أي حالة جنائية وتوزيع الوحدات في الموقع بتكليف من العمليات.</p>
-          </div>
-          <div class="bg-secondary/30 p-3.5 rounded-lg border border-border/60">
-            <strong class="text-primary block mb-1" data-ar="4. المتفاوض:" data-en="4. Negotiator:">4. المتفاوض:</strong>
-            <p class="text-textMuted" data-ar="حلقة الوصل الرسمية بين الشرطة والمجرمين للوصول لحل سلمي وحماية الرهائن." data-en="The official liaison between police and criminals to reach peaceful solutions and protect hostages.">حلقة الوصل الرسمية بين الشرطة والمجرمين للوصول لحل سلمي وحماية الرهائن.</p>
+            <strong class="text-primary block mb-1" data-ar="ديسباتش (Dispatch):" data-en="Dispatch:">ديسباتش (Dispatch):</strong>
+            <p class="text-textMuted" data-ar="مركز تنظيمي وتوجيهي لكافة الوحدات المتواجدة في الميدان" data-en="Organizational center for all field units">مركز تنظيمي وتوجيهي لكافة الوحدات المتواجدة في الميدان</p>
           </div>
         </div>
       </section>
 
-      <!-- Radio Channels Section -->
-      <section id="sec-radio" class="rounded-xl border border-border bg-card p-5 space-y-4">
+      <!-- البروتوكولات والأكواد -->
+      <section class="rounded-xl border border-border bg-card p-5 space-y-4">
         <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
-          📡 <span data-ar="موجات الراديو (Radio Channels)" data-en="Radio Channels">موجات الراديو (Radio Channels)</span>
+          📻 <span data-ar="أكواد البروتوكولات" data-en="Protocol Codes">أكواد البروتوكولات</span>
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-right text-xs sm:text-sm">
             <thead>
-              <tr class="border-b border-border text-primary">
-                <th class="py-2 px-3" data-ar="الموجة" data-en="Channel">الموجة</th>
-                <th class="py-2 px-3" data-ar="الاستخدام / القطاع" data-en="Usage / Sector">الاستخدام / القطاع</th>
+              <tr class="border-b border-border text-primary bg-slate-800/50">
+                <th class="py-3 px-4" data-ar="الكود" data-en="Code">الكود</th>
+                <th class="py-3 px-4" data-ar="الاسم" data-en="Name">الاسم</th>
+                <th class="py-3 px-4" data-ar="الوصف" data-en="Description">الوصف</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border/60 text-textMuted">
-              <tr>
-                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الأولى" data-en="Channel 1">الموجة الأولى</td>
-                <td class="py-2 px-3" data-ar="لقطاع الشرطة (وجب وجود مركز عمليات)" data-en="Police sector (Operations center required)">لقطاع الشرطة (وجب وجود مركز عمليات)</td>
+              <tr class="hover:bg-slate-800/30">
+                <td class="py-3 px-4 font-bold text-white">10-0</td>
+                <td class="py-3 px-4" data-ar="إلغاء النداء" data-en="Cancel Call">إلغاء النداء</td>
+                <td class="py-3 px-4" data-ar="الغاء العملية الجارية" data-en="Cancel current operation">الغاء العملية الجارية</td>
               </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الثانية" data-en="Channel 2">الموجة الثانية</td>
-                <td class="py-2 px-3" data-ar="لقطاع الشرطة (وجب وجود مركز عمليات)" data-en="Police sector (Operations center required)">لقطاع الشرطة (وجب وجود مركز عمليات)</td>
+              <tr class="hover:bg-slate-800/30">
+                <td class="py-3 px-4 font-bold text-white">10-1</td>
+                <td class="py-3 px-4" data-ar="مطاردة مركبة" data-en="Vehicle Pursuit">مطاردة مركبة</td>
+                <td class="py-3 px-4" data-ar="مطاردة مشبوهين في مركبة" data-en="Pursuing suspects in vehicle">مطاردة مشبوهين في مركبة</td>
               </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الثالثة" data-en="Channel 3">الموجة الثالثة</td>
-                <td class="py-2 px-3" data-ar="الحالات الجنائية للمطاردات الشرطة" data-en="Police pursuit criminal cases">الحالات الجنائية للمطاردات الشرطة</td>
+              <tr class="hover:bg-slate-800/30">
+                <td class="py-3 px-4 font-bold text-white">10-4</td>
+                <td class="py-3 px-4" data-ar="تأكيد" data-en="Acknowledged">تأكيد</td>
+                <td class="py-3 px-4" data-ar="صحيح ومفهوم" data-en="Understood">صحيح ومفهوم</td>
               </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white" data-ar="الموجة الرابعة" data-en="Channel 4">الموجة الرابعة</td>
-                <td class="py-2 px-3" data-ar="الحالات الجنائية للمطاردات التروبر" data-en="Trooper pursuit criminal cases">الحالات الجنائية للمطاردات التروبر</td>
+              <tr class="hover:bg-slate-800/30">
+                <td class="py-3 px-4 font-bold text-white">Code 0</td>
+                <td class="py-3 px-4" data-ar="استنفار أمني" data-en="Security Alert">استنفار أمني</td>
+                <td class="py-3 px-4" data-ar="عموم الوحدات للموقع" data-en="All units respond">عموم الوحدات للموقع</td>
               </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- General Status Codes Section -->
-      <section id="sec-status-codes" class="rounded-xl border border-border bg-card p-5 space-y-4">
-        <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
-          🚨 <span data-ar="أكواد الحالة العامة (General Status Codes)" data-en="General Status Codes">أكواد الحالة العامة (General Status Codes)</span>
-        </h3>
-        <div class="overflow-x-auto">
-          <table class="w-full text-right text-xs sm:text-sm">
-            <thead>
-              <tr class="border-b border-border text-primary">
-                <th class="py-2 px-3" data-ar="الكود" data-en="Code">الكود</th>
-                <th class="py-2 px-3" data-ar="النطق" data-en="Pronunciation">النطق</th>
-                <th class="py-2 px-3" data-ar="معنى الكود / الحالة" data-en="Meaning / Status">معنى الكود / الحالة</th>
+              <tr class="hover:bg-slate-800/30">
+                <td class="py-3 px-4 font-bold text-white">Code 3</td>
+                <td class="py-3 px-4" data-ar="حالة طوارئ" data-en="Emergency">حالة طوارئ</td>
+                <td class="py-3 px-4" data-ar="تشغيل الصافرات والأضواء" data-en="Activate sirens">تشغيل الصافرات والأضواء</td>
               </tr>
-            </thead>
-            <tbody class="divide-y divide-border/60 text-textMuted">
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">Code 0</td>
-                <td class="py-2 px-3 text-amber-400" data-ar="كود زيرو" data-en="Code Zero">كود زيرو</td>
-                <td class="py-2 px-3" data-ar="عموم الوحدات تتوجه للحالة (استنفار أمني)" data-en="All units head to the scene (Security alert)">عموم الوحدات تتوجه للحالة (استنفار أمني)</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-3 font-bold text-white">Code 3</td>
-                <td class="py-2 px-3 text-amber-400" data-ar="كود ثري" data-en="Code Three">كود ثري</td>
-                <td class="py-2 px-3" data-ar="تشغيل الصافرات مع الصوت" data-en="Lights with siren sound">تشغيل الصافرات مع الصوت</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- 10-Codes & 20-Codes Section -->
-      <section id="sec-ten-codes" class="rounded-xl border border-border bg-card p-5 space-y-4">
-        <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2 border-b border-border pb-2">
-          📻 <span data-ar="أكواد 10-Codes & 20-Codes" data-en="10-Codes & 20-Codes">أكواد 10-Codes & 20-Codes</span>
-        </h3>
-        <div class="overflow-x-auto">
-          <table class="w-full text-right text-xs sm:text-sm">
-            <thead>
-              <tr class="border-b border-border text-primary">
-                <th class="py-2 px-3" data-ar="الكود" data-en="Code">الكود</th>
-                <th class="py-2 px-3" data-ar="النطق" data-en="Pronunciation">النطق</th>
-                <th class="py-2 px-3" data-ar="معنى الكود / الحالة" data-en="Meaning / Status">معنى الكود / الحالة</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border/60 text-textMuted">
-              <tr><td class="py-2 px-3 font-bold text-white">10-4</td><td class="py-2 px-3" data-ar="تن فور" data-en="Ten Four">تن فور</td><td class="py-2 px-3" data-ar="صحيح / مفهوم" data-en="Understood / Acknowledged">صحيح / مفهوم</td></tr>
-              <tr><td class="py-2 px-3 font-bold text-white">10-1</td><td class="py-2 px-3" data-ar="تن ون" data-en="Ten One">تن ون</td><td class="py-2 px-3" data-ar="مطاردة مركبة" data-en="Vehicle pursuit">مطاردة مركبة</td></tr>
             </tbody>
           </table>
         </div>
       </section>
     </div>
 
-    <!-- TAB: RANKS (الرتب) -->
+    <!-- TAB: RANKS (الرتب التفاعلية) -->
     <div id="view-ranks" class="tab-view space-y-6">
       <section class="rounded-xl border border-border bg-card p-5 space-y-4">
         <div class="flex items-center justify-between border-b border-border pb-4">
           <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2">
-            🎖️ <span data-ar="الرتب الشرطية" data-en="Police Ranks">الرتب الشرطية</span>
+            🎖️ <span data-ar="الرتب العسكرية" data-en="Military Ranks">الرتب العسكرية</span>
           </h3>
+          <button onclick="window.openRankModal()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition">
+            <span data-ar="➕ إضافة" data-en="➕ Add">➕ إضافة</span>
+          </button>
         </div>
-        <div class="overflow-x-auto">
-          <table class="w-full text-right text-xs sm:text-sm">
-            <thead>
-              <tr class="border-b border-border text-primary bg-slate-800/50">
-                <th class="py-3 px-4" data-ar="الرتبة" data-en="Rank">الرتبة</th>
-                <th class="py-3 px-4" data-ar="الكود" data-en="Code">الكود</th>
-                <th class="py-3 px-4" data-ar="المستوى" data-en="Level">المستوى</th>
-                <th class="py-3 px-4" data-ar="الوصف" data-en="Description">الوصف</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border/60 text-textMuted">
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="جندي شرطة" data-en="Police Officer">جندي شرطة</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">PO-001</td>
-                <td class="py-3 px-4 text-green-400">1</td>
-                <td class="py-3 px-4" data-ar="الرتبة الأساسية للشرطة" data-en="Basic police rank">الرتبة الأساسية للشرطة</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="رقيب" data-en="Sergeant">رقيب</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">SGT-002</td>
-                <td class="py-3 px-4 text-yellow-400">2</td>
-                <td class="py-3 px-4" data-ar="قيادة مجموعة من الجنود" data-en="Leads a squad of officers">قيادة مجموعة من الجنود</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="ملازم أول" data-en="Senior Lieutenant">ملازم أول</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">SLT-003</td>
-                <td class="py-3 px-4 text-amber-400">3</td>
-                <td class="py-3 px-4" data-ar="إشراف على عدة فرق" data-en="Supervises multiple squads">إشراف على عدة فرق</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="ملازم" data-en="Lieutenant">ملازم</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">LT-004</td>
-                <td class="py-3 px-4 text-amber-400">4</td>
-                <td class="py-3 px-4" data-ar="ضابط ميداني" data-en="Field officer">ضابط ميداني</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="نقيب" data-en="Captain">نقيب</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">CPT-005</td>
-                <td class="py-3 px-4 text-gold">5</td>
-                <td class="py-3 px-4" data-ar="قائد قسم" data-en="Department commander">قائد قسم</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="مقدم" data-en="Major">مقدم</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">MAJ-006</td>
-                <td class="py-3 px-4 text-gold">6</td>
-                <td class="py-3 px-4" data-ar="مدير أقسام" data-en="Division director">مدير أقسام</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="عقيد" data-en="Colonel">عقيد</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">COL-007</td>
-                <td class="py-3 px-4 text-gold">7</td>
-                <td class="py-3 px-4" data-ar="قيادة عليا" data-en="Senior leadership">قيادة عليا</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="نائب رئيس" data-en="Deputy Chief">نائب رئيس</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">DC-008</td>
-                <td class="py-3 px-4 text-red-400">8</td>
-                <td class="py-3 px-4" data-ar="نائب القيادة العامة" data-en="Vice commander">نائب القيادة العامة</td>
-              </tr>
-              <tr class="hover:bg-slate-800/30">
-                <td class="py-3 px-4 font-bold text-white" data-ar="رئيس الشرطة" data-en="Chief of Police">رئيس الشرطة</td>
-                <td class="py-3 px-4 text-blue-400 font-mono">CP-009</td>
-                <td class="py-3 px-4 text-red-500 font-bold">9</td>
-                <td class="py-3 px-4" data-ar="القيادة العامة للشرطة" data-en="Police commander">القيادة العامة للشرطة</td>
-              </tr>
-            </tbody>
-          </table>
+        
+        <!-- Ranks Grid -->
+        <div id="ranksContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Cards will be populated by JavaScript -->
         </div>
       </section>
     </div>
@@ -414,10 +274,10 @@
       <section class="rounded-xl border border-border bg-card p-5 space-y-4">
         <div class="flex items-center justify-between border-b border-border pb-4">
           <h3 class="text-base sm:text-lg font-bold text-amber-500 flex items-center gap-2">
-            👮 <span data-ar="قائمة الأفراد (الروستر)" data-en="Officers Roster">قائمة الأفراد (الروستر)</span>
+            👮 <span data-ar="قائمة الأفراد" data-en="Officers Roster">قائمة الأفراد</span>
           </h3>
-          <button onclick="window.openOfficerModal()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition" data-ar="➕ إضافة" data-en="➕ Add">
-            ➕ إضافة
+          <button onclick="window.openOfficerModal()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition">
+            <span data-ar="➕ إضافة" data-en="➕ Add">➕ إضافة</span>
           </button>
         </div>
         
@@ -429,46 +289,83 @@
     </div>
 
     <!-- Placeholder divs for other tabs -->
-    <div id="view-citizen" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="محتوى بوابة المواطن قريباً" data-en="Citizen Portal content coming soon">محتوى بوابة المواطن قريباً</p></div></div>
-    <div id="view-apply" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="نموذج التقديم قريباً" data-en="Application form coming soon">نموذج التقديم قريباً</p></div></div>
-    <div id="view-news" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="الأخبار قريباً" data-en="News coming soon">الأخبار قريباً</p></div></div>
-    <div id="view-courts" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="محتوى المحاكم قريباً" data-en="Courts content coming soon">محتوى المحاكم قريباً</p></div></div>
-    <div id="view-wanted" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قائمة المطلوبين قريباً" data-en="Wanted list coming soon">قائمة المطلوبين قريباً</p></div></div>
-    <div id="view-departments" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="معلومات الأقسام قريباً" data-en="Departments info coming soon">معلومات الأقسام قريباً</p></div></div>
+    <div id="view-citizen" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قريباً" data-en="Coming Soon">قريباً</p></div></div>
+    <div id="view-apply" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قريباً" data-en="Coming Soon">قريباً</p></div></div>
+    <div id="view-news" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قريباً" data-en="Coming Soon">قريباً</p></div></div>
+    <div id="view-courts" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قريباً" data-en="Coming Soon">قريباً</p></div></div>
+    <div id="view-wanted" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قريباً" data-en="Coming Soon">قريباً</p></div></div>
+    <div id="view-departments" class="tab-view space-y-6"><div class="rounded-xl border border-border bg-card p-5 text-center"><p class="text-textMuted" data-ar="قريباً" data-en="Coming Soon">قريباً</p></div></div>
   </main>
+
+  <!-- Rank Modal -->
+  <div id="rankModal" class="modal">
+    <div class="bg-card border-2 border-gold rounded-xl p-6 w-full max-w-md mx-4 relative z-50">
+      <div class="flex justify-between items-center mb-4 border-b border-border pb-4">
+        <h3 class="text-lg font-bold text-amber-500" id="rankModalTitle" data-ar="إضافة رتبة" data-en="Add Rank">إضافة رتبة</h3>
+        <button onclick="window.closeRankModal()" class="text-red-500 font-bold text-2xl">✕</button>
+      </div>
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+          <input type="password" id="rankPassword" placeholder="أدخل كلمة المرور" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="اسم الرتبة" data-en="Rank Name">اسم الرتبة</label>
+          <input type="text" id="rankName" placeholder="الاسم" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="الكود" data-en="Code">الكود</label>
+          <input type="text" id="rankCode" placeholder="الكود" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="المستوى" data-en="Level">المستوى</label>
+          <input type="number" id="rankLevel" placeholder="المستوى" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="الوصف" data-en="Description">الوصف</label>
+          <input type="text" id="rankDesc" placeholder="الوصف" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+        </div>
+        
+        <div class="flex gap-2 pt-4">
+          <button type="button" onclick="window.saveRank()" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded transition" data-ar="حفظ" data-en="Save">حفظ</button>
+          <button type="button" onclick="window.closeRankModal()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded transition" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Officer Modal -->
   <div id="officerModal" class="modal">
     <div class="bg-card border-2 border-primary rounded-xl p-6 w-full max-w-md mx-4 relative z-50">
       <div class="flex justify-between items-center mb-4 border-b border-border pb-4">
-        <h3 class="text-lg font-bold text-amber-500" id="modalTitle" data-ar="إضافة ضابط جديد" data-en="Add New Officer">إضافة ضابط جديد</h3>
+        <h3 class="text-lg font-bold text-amber-500" id="officerModalTitle" data-ar="إضافة ضابط" data-en="Add Officer">إضافة ضابط</h3>
         <button onclick="window.closeOfficerModal()" class="text-red-500 font-bold text-2xl">✕</button>
       </div>
       
-      <form id="officerForm" class="space-y-4">
+      <div class="space-y-4">
         <div>
-          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+          <input type="password" id="officerPassword" placeholder="أدخل كلمة المرور" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="الاسم" data-en="Name">الاسم</label>
           <input type="text" id="officerName" placeholder="الاسم" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
         </div>
         
         <div>
-          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="الرقم الموظف" data-en="Employee ID">الرقم الموظف</label>
-          <input type="text" id="officerId" placeholder="رقم الموظف" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+          <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="الرقم" data-en="ID">الرقم</label>
+          <input type="text" id="officerId" placeholder="الرقم" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
         </div>
         
         <div>
           <label class="block text-sm font-bold text-blue-400 mb-2" data-ar="الرتبة" data-en="Rank">الرتبة</label>
-          <select id="officerRank" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
-            <option value="جندي شرطة">جندي شرطة</option>
-            <option value="رقيب">رقيب</option>
-            <option value="ملازم أول">ملازم أول</option>
-            <option value="ملازم">ملازم</option>
-            <option value="نقيب">نقيب</option>
-            <option value="مقدم">مقدم</option>
-            <option value="عقيد">عقيد</option>
-            <option value="نائب رئيس">نائب رئيس</option>
-            <option value="رئيس الشرطة">رئيس الشرطة</option>
-          </select>
+          <input type="text" id="officerRank" placeholder="الرتبة" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-400">
         </div>
         
         <div>
@@ -489,50 +386,72 @@
           <button type="button" onclick="window.saveOfficer()" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded transition" data-ar="حفظ" data-en="Save">حفظ</button>
           <button type="button" onclick="window.closeOfficerModal()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded transition" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 
   <script>
+    const PASSWORD = "0404";
     let currentLanguage = 'ar';
+    let ranks = [
+      { name: 'جندي شرطة', code: 'PO-001', level: 1, desc: 'الرتبة الأساسية' },
+      { name: 'رقيب', code: 'SGT-002', level: 2, desc: 'قيادة فريق' },
+      { name: 'ملازم', code: 'LT-004', level: 4, desc: 'ضابط ميداني' },
+      { name: 'نقيب', code: 'CPT-005', level: 5, desc: 'قائد قسم' },
+      { name: 'رئيس الشرطة', code: 'CP-009', level: 9, desc: 'القيادة العامة' },
+    ];
     let officers = [
       { id: '001', name: 'أحمد العتيبي', rank: 'رئيس الشرطة', dept: 'الإدارة العامة', status: 'نشط' },
       { id: '002', name: 'محمد الدعيع', rank: 'نائب رئيس', dept: 'العمليات', status: 'نشط' },
       { id: '003', name: 'سارة الحربي', rank: 'ملازم', dept: 'الدوريات', status: 'نشط' },
-      { id: '004', name: 'علي القحطاني', rank: 'رقيب', dept: 'التحقيقات', status: 'نشط' },
-      { id: '005', name: 'فاطمة السلمي', rank: 'جندي شرطة', dept: 'الدوريات', status: 'إجازة' },
     ];
-    let editingOfficerId = null;
+    let editingRankIndex = null;
+    let editingOfficerIndex = null;
 
     window.switchTab = function(tabName) {
       const tabs = document.querySelectorAll('.tab-view');
       tabs.forEach(tab => tab.classList.remove('active'));
       const selectedTab = document.getElementById(`view-${tabName}`);
-      if (selectedTab) {
-        selectedTab.classList.add('active');
-        if (tabName === 'roster') {
-          window.renderOfficers();
-        }
-      }
+      if (selectedTab) selectedTab.classList.add('active');
+      
       const navButtons = document.querySelectorAll('.nav-btn');
       navButtons.forEach(btn => btn.classList.remove('active'));
       const activeButton = document.getElementById(`nav-${tabName}`);
-      if (activeButton) {
-        activeButton.classList.add('active');
-      }
-      const subNav = document.getElementById('manualSubNav');
-      if (tabName === 'manual') {
-        subNav.classList.remove('hidden');
-      } else {
-        subNav.classList.add('hidden');
-      }
+      if (activeButton) activeButton.classList.add('active');
+      
+      if (tabName === 'ranks') window.renderRanks();
+      if (tabName === 'roster') window.renderOfficers();
+    };
+
+    window.renderRanks = function() {
+      const container = document.getElementById('ranksContainer');
+      container.innerHTML = '';
+      ranks.forEach((rank, index) => {
+        const card = document.createElement('div');
+        card.className = 'rank-card rounded-lg p-6 relative';
+        card.innerHTML = `
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex-1">
+              <div class="text-2xl font-bold text-gold mb-2">${rank.name}</div>
+              <div class="text-xs text-blue-300 font-mono">الكود: ${rank.code}</div>
+              <div class="text-xs text-amber-400 mt-1">المستوى: ${rank.level}</div>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="window.editRank(${index})" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded text-xs font-bold">✎</button>
+              <button onclick="window.deleteRank(${index})" class="bg-red-600 hover:bg-red-700 text-white p-2 rounded text-xs font-bold">✕</button>
+            </div>
+          </div>
+          <div class="text-xs text-textMuted border-t border-gold/30 pt-2">${rank.desc}</div>
+        `;
+        container.appendChild(card);
+      });
     };
 
     window.renderOfficers = function() {
       const container = document.getElementById('officersContainer');
       container.innerHTML = '';
       officers.forEach((officer, index) => {
-        const statusColor = officer.status === 'نشط' ? 'text-green-400' : officer.status === 'إجازة' ? 'text-yellow-400' : 'text-blue-400';
+        const statusColor = officer.status === 'نشط' ? 'text-green-400' : 'text-yellow-400';
         const card = document.createElement('div');
         card.className = 'officer-card rounded-lg p-6 relative';
         card.innerHTML = `
@@ -543,8 +462,8 @@
               <div class="text-xs text-blue-300 font-mono">ID: ${officer.id}</div>
             </div>
             <div class="flex gap-2">
-              <button onclick="window.editOfficer(${index})" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded text-xs font-bold transition">✎</button>
-              <button onclick="window.deleteOfficer(${index})" class="bg-red-600 hover:bg-red-700 text-white p-2 rounded text-xs font-bold transition">✕</button>
+              <button onclick="window.editOfficer(${index})" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded text-xs">✎</button>
+              <button onclick="window.deleteOfficer(${index})" class="bg-red-600 hover:bg-red-700 text-white p-2 rounded text-xs">✕</button>
             </div>
           </div>
           <div class="space-y-2 text-xs">
@@ -554,7 +473,7 @@
             </div>
             <div class="flex justify-between">
               <span class="text-blue-300">الحالة:</span>
-              <span class="${statusColor} font-bold">${officer.status}</span>
+              <span class="${statusColor}">${officer.status}</span>
             </div>
           </div>
         `;
@@ -562,46 +481,107 @@
       });
     };
 
+    window.openRankModal = function() {
+      editingRankIndex = null;
+      document.getElementById('rankPassword').value = '';
+      document.getElementById('rankName').value = '';
+      document.getElementById('rankCode').value = '';
+      document.getElementById('rankLevel').value = '';
+      document.getElementById('rankDesc').value = '';
+      document.getElementById('rankModal').classList.add('active');
+    };
+
+    window.editRank = function(index) {
+      editingRankIndex = index;
+      const rank = ranks[index];
+      document.getElementById('rankPassword').value = '';
+      document.getElementById('rankName').value = rank.name;
+      document.getElementById('rankCode').value = rank.code;
+      document.getElementById('rankLevel').value = rank.level;
+      document.getElementById('rankDesc').value = rank.desc;
+      document.getElementById('rankModal').classList.add('active');
+    };
+
+    window.saveRank = function() {
+      const password = document.getElementById('rankPassword').value;
+      if (password !== PASSWORD) {
+        alert(currentLanguage === 'ar' ? 'كلمة المرور خاطئة!' : 'Wrong password!');
+        return;
+      }
+      
+      const name = document.getElementById('rankName').value.trim();
+      const code = document.getElementById('rankCode').value.trim();
+      const level = parseInt(document.getElementById('rankLevel').value);
+      const desc = document.getElementById('rankDesc').value.trim();
+      
+      if (!name || !code || !level || !desc) {
+        alert(currentLanguage === 'ar' ? 'ملء جميع الحقول مطلوب' : 'Fill all fields');
+        return;
+      }
+      
+      if (editingRankIndex !== null) {
+        ranks[editingRankIndex] = { name, code, level, desc };
+      } else {
+        ranks.push({ name, code, level, desc });
+      }
+      
+      window.renderRanks();
+      window.closeRankModal();
+    };
+
+    window.deleteRank = function(index) {
+      if (confirm(currentLanguage === 'ar' ? 'حذف الرتبة؟' : 'Delete rank?')) {
+        ranks.splice(index, 1);
+        window.renderRanks();
+      }
+    };
+
+    window.closeRankModal = function() {
+      document.getElementById('rankModal').classList.remove('active');
+    };
+
     window.openOfficerModal = function() {
-      editingOfficerId = null;
-      document.getElementById('officerForm').reset();
-      document.getElementById('modalTitle').textContent = currentLanguage === 'ar' ? 'إضافة ضابط جديد' : 'Add New Officer';
+      editingOfficerIndex = null;
+      document.getElementById('officerPassword').value = '';
+      document.getElementById('officerName').value = '';
+      document.getElementById('officerId').value = '';
+      document.getElementById('officerRank').value = '';
+      document.getElementById('officerDept').value = '';
       document.getElementById('officerModal').classList.add('active');
     };
 
     window.editOfficer = function(index) {
-      editingOfficerId = index;
+      editingOfficerIndex = index;
       const officer = officers[index];
+      document.getElementById('officerPassword').value = '';
       document.getElementById('officerName').value = officer.name;
       document.getElementById('officerId').value = officer.id;
       document.getElementById('officerRank').value = officer.rank;
       document.getElementById('officerDept').value = officer.dept;
       document.getElementById('officerStatus').value = officer.status;
-      document.getElementById('modalTitle').textContent = currentLanguage === 'ar' ? 'تعديل البيانات' : 'Edit Officer';
       document.getElementById('officerModal').classList.add('active');
     };
 
-    window.deleteOfficer = function(index) {
-      if (confirm(currentLanguage === 'ar' ? 'هل تريد حذف هذا الضابط؟' : 'Delete this officer?')) {
-        officers.splice(index, 1);
-        window.renderOfficers();
-      }
-    };
-
     window.saveOfficer = function() {
+      const password = document.getElementById('officerPassword').value;
+      if (password !== PASSWORD) {
+        alert(currentLanguage === 'ar' ? 'كلمة المرور خاطئة!' : 'Wrong password!');
+        return;
+      }
+      
       const name = document.getElementById('officerName').value.trim();
       const id = document.getElementById('officerId').value.trim();
-      const rank = document.getElementById('officerRank').value;
+      const rank = document.getElementById('officerRank').value.trim();
       const dept = document.getElementById('officerDept').value.trim();
       const status = document.getElementById('officerStatus').value;
       
-      if (!name || !id || !dept) {
-        alert(currentLanguage === 'ar' ? 'الرجاء ملء جميع الحقول' : 'Please fill all fields');
+      if (!name || !id || !rank || !dept) {
+        alert(currentLanguage === 'ar' ? 'ملء جميع الحقول مطلوب' : 'Fill all fields');
         return;
       }
-
-      if (editingOfficerId !== null) {
-        officers[editingOfficerId] = { id, name, rank, dept, status };
+      
+      if (editingOfficerIndex !== null) {
+        officers[editingOfficerIndex] = { id, name, rank, dept, status };
       } else {
         officers.push({ id, name, rank, dept, status });
       }
@@ -610,29 +590,22 @@
       window.closeOfficerModal();
     };
 
-    window.closeOfficerModal = function() {
-      document.getElementById('officerModal').classList.remove('active');
-      editingOfficerId = null;
+    window.deleteOfficer = function(index) {
+      if (confirm(currentLanguage === 'ar' ? 'حذف الضابط؟' : 'Delete officer?')) {
+        officers.splice(index, 1);
+        window.renderOfficers();
+      }
     };
 
-    window.scrollToSection = function(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    window.closeOfficerModal = function() {
+      document.getElementById('officerModal').classList.remove('active');
     };
 
     window.toggleLanguage = function() {
       currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
-      const langLabel = document.getElementById('langLabel');
-      langLabel.textContent = currentLanguage === 'ar' ? 'AR' : 'EN';
-      const elementsWithLang = document.querySelectorAll('[data-ar][data-en]');
-      elementsWithLang.forEach(element => {
-        if (currentLanguage === 'ar') {
-          element.textContent = element.getAttribute('data-ar');
-        } else {
-          element.textContent = element.getAttribute('data-en');
-        }
+      document.getElementById('langLabel').textContent = currentLanguage === 'ar' ? 'AR' : 'EN';
+      document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+        el.textContent = currentLanguage === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
       });
       const htmlRoot = document.getElementById('htmlRoot');
       if (currentLanguage === 'ar') {
@@ -646,6 +619,7 @@
 
     setTimeout(() => {
       window.switchTab('manual');
+      window.renderRanks();
       window.renderOfficers();
     }, 100);
   </script>
